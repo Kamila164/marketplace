@@ -13,6 +13,17 @@
 		8E41ECAA299E644200C4D318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E41ECA8299E644200C4D318 /* Main.storyboard */; };
 		8E41ECAC299E644300C4D318 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E41ECAB299E644300C4D318 /* Assets.xcassets */; };
 		8E41ECAF299E644300C4D318 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E41ECAD299E644300C4D318 /* LaunchScreen.storyboard */; };
+		8E41ECBD299E66A800C4D318 /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECBB299E66A800C4D318 /* ServiceCell.swift */; };
+		8E41ECBE299E66A800C4D318 /* ServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E41ECBC299E66A800C4D318 /* ServiceCell.xib */; };
+		8E41ECC0299E6CDC00C4D318 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECBF299E6CDC00C4D318 /* Service.swift */; };
+		8E41ECC2299E731800C4D318 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E41ECC1299E731800C4D318 /* SearchView.xib */; };
+		8E41ECC4299E733A00C4D318 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECC3299E733A00C4D318 /* SearchView.swift */; };
+		8E41ECC7299E816800C4D318 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECC5299E816800C4D318 /* CategoryCell.swift */; };
+		8E41ECC8299E816800C4D318 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E41ECC6299E816800C4D318 /* CategoryCell.xib */; };
+		8E41ECCA299E847D00C4D318 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECC9299E847D00C4D318 /* Category.swift */; };
+		8E41ECCD299E89E500C4D318 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECCB299E89E500C4D318 /* ProductTableViewCell.swift */; };
+		8E41ECCE299E89E500C4D318 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E41ECCC299E89E500C4D318 /* ProductTableViewCell.xib */; };
+		8E41ECD0299E9F7700C4D318 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECCF299E9F7700C4D318 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +35,17 @@
 		8E41ECAB299E644300C4D318 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E41ECAE299E644300C4D318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E41ECB0299E644300C4D318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E41ECBB299E66A800C4D318 /* ServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
+		8E41ECBC299E66A800C4D318 /* ServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCell.xib; sourceTree = "<group>"; };
+		8E41ECBF299E6CDC00C4D318 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		8E41ECC1299E731800C4D318 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		8E41ECC3299E733A00C4D318 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		8E41ECC5299E816800C4D318 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		8E41ECC6299E816800C4D318 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		8E41ECC9299E847D00C4D318 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8E41ECCB299E89E500C4D318 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		8E41ECCC299E89E500C4D318 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
+		8E41ECCF299E9F7700C4D318 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +78,66 @@
 		8E41ECA1299E644200C4D318 /* hw-2-m-4 */ = {
 			isa = PBXGroup;
 			children = (
-				8E41ECA2299E644200C4D318 /* AppDelegate.swift */,
-				8E41ECA4299E644200C4D318 /* SceneDelegate.swift */,
-				8E41ECA6299E644200C4D318 /* ViewController.swift */,
+				8E41ECBA299E65C700C4D318 /* View */,
+				8E41ECB9299E65C000C4D318 /* Model */,
+				8E41ECB8299E65B800C4D318 /* App */,
+				8E41ECB7299E65A500C4D318 /* Controller */,
 				8E41ECA8299E644200C4D318 /* Main.storyboard */,
+				8E41ECB6299E657600C4D318 /* Resource */,
+			);
+			path = "hw-2-m-4";
+			sourceTree = "<group>";
+		};
+		8E41ECB6299E657600C4D318 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
 				8E41ECAB299E644300C4D318 /* Assets.xcassets */,
 				8E41ECAD299E644300C4D318 /* LaunchScreen.storyboard */,
 				8E41ECB0299E644300C4D318 /* Info.plist */,
 			);
-			path = "hw-2-m-4";
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		8E41ECB7299E65A500C4D318 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E41ECA6299E644200C4D318 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8E41ECB8299E65B800C4D318 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8E41ECA2299E644200C4D318 /* AppDelegate.swift */,
+				8E41ECA4299E644200C4D318 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8E41ECB9299E65C000C4D318 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E41ECBF299E6CDC00C4D318 /* Service.swift */,
+				8E41ECC9299E847D00C4D318 /* Category.swift */,
+				8E41ECCF299E9F7700C4D318 /* Product.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8E41ECBA299E65C700C4D318 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E41ECBB299E66A800C4D318 /* ServiceCell.swift */,
+				8E41ECBC299E66A800C4D318 /* ServiceCell.xib */,
+				8E41ECC3299E733A00C4D318 /* SearchView.swift */,
+				8E41ECC1299E731800C4D318 /* SearchView.xib */,
+				8E41ECC5299E816800C4D318 /* CategoryCell.swift */,
+				8E41ECC6299E816800C4D318 /* CategoryCell.xib */,
+				8E41ECCB299E89E500C4D318 /* ProductTableViewCell.swift */,
+				8E41ECCC299E89E500C4D318 /* ProductTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +199,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E41ECAF299E644300C4D318 /* LaunchScreen.storyboard in Resources */,
+				8E41ECC8299E816800C4D318 /* CategoryCell.xib in Resources */,
+				8E41ECC2299E731800C4D318 /* SearchView.xib in Resources */,
+				8E41ECCE299E89E500C4D318 /* ProductTableViewCell.xib in Resources */,
+				8E41ECBE299E66A800C4D318 /* ServiceCell.xib in Resources */,
 				8E41ECAC299E644300C4D318 /* Assets.xcassets in Resources */,
 				8E41ECAA299E644200C4D318 /* Main.storyboard in Resources */,
 			);
@@ -139,8 +216,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E41ECA7299E644200C4D318 /* ViewController.swift in Sources */,
+				8E41ECBD299E66A800C4D318 /* ServiceCell.swift in Sources */,
+				8E41ECCD299E89E500C4D318 /* ProductTableViewCell.swift in Sources */,
+				8E41ECC0299E6CDC00C4D318 /* Service.swift in Sources */,
+				8E41ECC7299E816800C4D318 /* CategoryCell.swift in Sources */,
 				8E41ECA3299E644200C4D318 /* AppDelegate.swift in Sources */,
+				8E41ECC4299E733A00C4D318 /* SearchView.swift in Sources */,
+				8E41ECD0299E9F7700C4D318 /* Product.swift in Sources */,
 				8E41ECA5299E644200C4D318 /* SceneDelegate.swift in Sources */,
+				8E41ECCA299E847D00C4D318 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +372,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "hw-2-m-4/Info.plist";
+				INFOPLIST_FILE = "hw-2-m-4/Resource/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -315,7 +399,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "hw-2-m-4/Info.plist";
+				INFOPLIST_FILE = "hw-2-m-4/Resource/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
