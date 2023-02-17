@@ -150,8 +150,19 @@ extension ViewController: UITableViewDataSource {
             for: indexPath
         ) as! ProductTableViewCell
         let model = productArray[indexPath.row]
+        cell.delegate = self
         cell.display(item: model)
         
         return cell
     }
+}
+
+extension ViewController: ProductDelegate {
+    func didSelectProduct(item: Product) {
+        let secondVC = storyboard?.instantiateViewController(withIdentifier: "product_vc") as! ProductViewController
+        secondVC.product = item
+        navigationController?.pushViewController(secondVC, animated: true)
+    }
+    
+    
 }

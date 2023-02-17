@@ -7,11 +7,21 @@
 
 import UIKit
 
+protocol ProductDelegate: AnyObject {
+    func didSelectProduct(item: Product)
+}
+
 class ProductTableViewCell: UITableViewCell {
     
     static var reuseId = String(describing: ProductTableViewCell.self)
     
-    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var productImageView: UIImageView! {
+        didSet {
+            productImageView.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(didTapOnImage))
+            productImageView.addGestureRecognizer(tap)
+        }
+    }
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productWorkingHouseLabel: UILabel!
     @IBOutlet weak var productRatingLabel: UILabel!
@@ -22,7 +32,12 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var productDistance: UILabel!
     @IBOutlet weak var timeOfDelivery: UILabel!
     
+    weak var delegate: ProductDelegate?
+    private var product: Product?
+    
     func display(item: Product) {
+        product = item
+        
         productImageView.image = UIImage(named: item.productImage)
         productNameLabel.text = item.productName
         productWorkingHouseLabel.text = item.productWorkingHouse
@@ -33,5 +48,12 @@ class ProductTableViewCell: UITableViewCell {
         productDeliveryPrice.text = item.productDeliveryPrice
         productDistance.text = item.productDistance
         timeOfDelivery.text = item.timeOfDelivery
+    }
+    
+    @objc func didTapOnImage() {
+        guard let product = product else {
+            return
+        }
+        delegate?.didSelectProduct(item: product)
     }
 }
