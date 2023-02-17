@@ -14,51 +14,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var productTableView: UITableView!
     @IBOutlet weak var searchView: SearchView!
     
-    let serviceArray: [Service] = [
-        Service(serviceTitle: "Delivery"),
-        Service(serviceTitle: "Pickup"),
-        Service(serviceTitle: "Catering"),
-        Service(serviceTitle: "Curbside")]
-    
-    let categoryArray: [Category] = [
-        Category(categoryImage: "takeawaysImage", CategoryTitle: "Takeaways"),
-        Category(categoryImage: "groceryImage", CategoryTitle: "Grocery"),
-        Category(categoryImage: "convenienceImage", CategoryTitle: "Convenience"),
-        Category(categoryImage: "pharmacyImage", CategoryTitle: "Pharmacy")]
-    
-    let productArray: [Product] = [
-        Product(
-            productImage: "burger",
-            productName: "Burger Craze",
-            productWorkingHouse: "Open",
-            productRating: "4.6 (601)",
-            productCountry: "American",
-            productType: "Burgers",
-            productDeliveryType: "Delivery: FREE",
-            productDeliveryPrice: "Minimum: $10",
-            productDistance: "1.5 km away",
-            timeOfDelivery: "15-20 min"
-        ),
-        Product(
-            productImage: "pizza",
-            productName: "Vegetarian Pizza",
-            productWorkingHouse: "Open",
-            productRating: "4.6 (601)",
-            productCountry: "Italian",
-            productType: "Pizza",
-            productDeliveryType: "Delivery: FREE",
-            productDeliveryPrice: "Minimum: $10",
-            productDistance: "1.8 km away",
-            timeOfDelivery: "10-15 min"
-        )
-    ]
-    
+    var serviceArray: [Service] = []
+    var categoryArray: [Category] = []
+    var productArray: [Product] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureServiceCV()
         configureCategoryCV()
         configureProductTV()
+        
+        fetchProduct()
+        fetchCategory()
+        fetchService()
     }
     
     private func configureServiceCV() {
@@ -94,6 +63,47 @@ class ViewController: UIViewController {
             ),
             forCellReuseIdentifier: ProductTableViewCell.reuseId
         )
+    }
+    
+    private func fetchProduct() {
+        do {
+            productArray = try NetworkLayer.shared.fetchProduct()
+            productTableView.reloadData()
+        } catch {
+            showAlert(error)
+        }
+    }
+    
+    private func fetchCategory() {
+        do {
+            categoryArray = try NetworkLayer.shared.fetchCategory()
+            categoryCollectionView.reloadData()
+        } catch {
+            showAlert(error)
+        }
+    }
+    
+    private func fetchService() {
+        do {
+            serviceArray = try NetworkLayer.shared.fetchService()
+            serviceCollectionView.reloadData()
+        } catch {
+            showAlert(error)
+        }
+    }
+    
+    private func showAlert(_ error: Error) {
+        let alert = UIAlertController(
+            title: "Error",
+            message: "\(error.localizedDescription)",
+            preferredStyle: .alert
+        )
+        let acceptAction = UIAlertAction(
+            title: "OK",
+            style: .destructive
+        )
+        alert.addAction(acceptAction)
+        present(alert, animated: true)
     }
 }
 
@@ -163,6 +173,4 @@ extension ViewController: ProductDelegate {
         secondVC.product = item
         navigationController?.pushViewController(secondVC, animated: true)
     }
-    
-    
 }

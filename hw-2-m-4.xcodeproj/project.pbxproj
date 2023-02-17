@@ -25,6 +25,7 @@
 		8E41ECCE299E89E500C4D318 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E41ECCC299E89E500C4D318 /* ProductTableViewCell.xib */; };
 		8E41ECD0299E9F7700C4D318 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECCF299E9F7700C4D318 /* Product.swift */; };
 		8E41ECD2299F7AFB00C4D318 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECD1299F7AFB00C4D318 /* ProductViewController.swift */; };
+		8E41ECD4299F968D00C4D318 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECD3299F968D00C4D318 /* NetworkLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		8E41ECCC299E89E500C4D318 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		8E41ECCF299E9F7700C4D318 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		8E41ECD1299F7AFB00C4D318 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		8E41ECD3299F968D00C4D318 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				8E41ECBF299E6CDC00C4D318 /* Service.swift */,
 				8E41ECC9299E847D00C4D318 /* Category.swift */,
 				8E41ECCF299E9F7700C4D318 /* Product.swift */,
+				8E41ECD3299F968D00C4D318 /* NetworkLayer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E41ECD4299F968D00C4D318 /* NetworkLayer.swift in Sources */,
 				8E41ECA7299E644200C4D318 /* ViewController.swift in Sources */,
 				8E41ECBD299E66A800C4D318 /* ServiceCell.swift in Sources */,
 				8E41ECCD299E89E500C4D318 /* ProductTableViewCell.swift in Sources */,

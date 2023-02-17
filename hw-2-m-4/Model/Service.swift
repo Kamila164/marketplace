@@ -7,6 +7,23 @@
 
 import Foundation
 
-struct Service {
+let serviceJSON = """
+[
+{
+    "serviceTitle": "Delivery"
+},
+{
+    "serviceTitle": "Pickup"
+},
+{
+    "serviceTitle": "Catering"
+},
+{
+    "serviceTitle": "Curbside"
+}
+]
+"""
+
+struct Service: Decodable {
     var serviceTitle: String
 }
