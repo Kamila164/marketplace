@@ -21,6 +21,6 @@ class ProductViewController: UIViewController {
         guard let product = product else {
             return
         }
-        imageView.image = UIImage(named: product.productImage)
+        imageView.image = UIImage(named: product.thumbnail)
     }
 }

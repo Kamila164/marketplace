@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var serviceCollectionView: UICollectionView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var productTableView: UITableView!
-    @IBOutlet weak var searchView: SearchView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var serviceArray: [Service] = []
     var categoryArray: [Category] = []
@@ -66,11 +66,29 @@ class ViewController: UIViewController {
     }
     
     private func fetchProduct() {
-        do {
-            productArray = try NetworkLayer.shared.fetchProduct()
-            productTableView.reloadData()
-        } catch {
-            showAlert(error)
+        NetworkLayer.shared.fetchProduct { result in
+            switch result {
+            case .success(let model):
+                self.productArray = model
+                DispatchQueue.main.async {
+                    self.productTableView.reloadData()
+                }
+            case .failure(let error):
+                self.showAlert(error)
+            }
+        }
+    }
+    private func searchProduct(by word: String) {
+        NetworkLayer.shared.searchProduct(by: word) { result in
+            switch result {
+            case .success(let model):
+                self.productArray = model
+                DispatchQueue.main.async {
+                    self.productTableView.reloadData()
+                }
+            case .failure(let error):
+                self.showAlert(error)
+            }
         }
     }
     
@@ -151,7 +169,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        productArray.count
+        return productArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -172,5 +190,11 @@ extension ViewController: ProductDelegate {
         let secondVC = storyboard?.instantiateViewController(withIdentifier: "product_vc") as! ProductViewController
         secondVC.product = item
         navigationController?.pushViewController(secondVC, animated: true)
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchProduct(by: searchText)
     }
 }
