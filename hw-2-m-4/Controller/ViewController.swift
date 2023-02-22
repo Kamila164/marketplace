@@ -74,7 +74,7 @@ class ViewController: UIViewController {
                     self.productTableView.reloadData()
                 }
             case .failure(let error):
-                self.showAlert(error)
+                self.showError(error)
             }
         }
     }
@@ -87,7 +87,22 @@ class ViewController: UIViewController {
                     self.productTableView.reloadData()
                 }
             case .failure(let error):
-                self.showAlert(error)
+                self.showError(error)
+            }
+        }
+    }
+
+    private func deleteProduct(by id: Int) {
+        NetworkLayer.shared.deleteProduct(with: id) { result in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.showSuccess("Succesful")
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.showError(error)
+                }
             }
         }
     }
@@ -97,7 +112,7 @@ class ViewController: UIViewController {
             categoryArray = try NetworkLayer.shared.fetchCategory()
             categoryCollectionView.reloadData()
         } catch {
-            showAlert(error)
+            showError(error)
         }
     }
     
@@ -106,11 +121,11 @@ class ViewController: UIViewController {
             serviceArray = try NetworkLayer.shared.fetchService()
             serviceCollectionView.reloadData()
         } catch {
-            showAlert(error)
+            showError(error)
         }
     }
     
-    private func showAlert(_ error: Error) {
+    private func showError(_ error: Error) {
         let alert = UIAlertController(
             title: "Error",
             message: "\(error.localizedDescription)",
@@ -119,6 +134,20 @@ class ViewController: UIViewController {
         let acceptAction = UIAlertAction(
             title: "OK",
             style: .destructive
+        )
+        alert.addAction(acceptAction)
+        present(alert, animated: true)
+    }
+    
+    private func showSuccess(_ message: String) {
+        let alert = UIAlertController(
+            title: "Success",
+            message: message,
+            preferredStyle: .alert
+        )
+        let acceptAction = UIAlertAction(
+            title: "OK",
+            style: .default
         )
         alert.addAction(acceptAction)
         present(alert, animated: true)
@@ -182,6 +211,22 @@ extension ViewController: UITableViewDataSource {
         cell.display(item: model)
         
         return cell
+    }
+    
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let id = productArray[indexPath.row].id
+            deleteProduct(by: id)
+            productArray.remove(at: indexPath.row)
+            productTableView.reloadData()
+        }
     }
 }
 

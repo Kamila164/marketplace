@@ -14,13 +14,13 @@ class ProductViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+//        configureUI()
     }
-    
-    private func configureUI() {
-        guard let product = product else {
-            return
-        }
-        imageView.image = UIImage(named: product.thumbnail)
-    }
+//
+//    private func configureUI() {
+//        guard let product = product else {
+//            return
+//        }
+//        imageView.image = UIImage(named: product.thumbnail)
+//    }
 }

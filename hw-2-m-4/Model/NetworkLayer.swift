@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum HTTPRequest: String {
+    case GET, POST, PUT, DELETE
+}
+
 final class NetworkLayer {
     static let shared = NetworkLayer()
     
@@ -53,6 +57,39 @@ final class NetworkLayer {
         }
     }
     
+    func addNewProduct(with model: Product, completion: @escaping (Result<Void, Error>) -> Void) {
+        let url = baseURL.appendingPathComponent("add")
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPRequest.POST.rawValue
+        request.httpBody = encode(with: model)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            if data != nil {
+                completion(.success(()))
+            }
+        }
+        .resume()
+    }
+    
+    func deleteProduct(with id: Int, completion: @escaping(Result<Void, Error>) -> Void) {
+        let url = baseURL.appendingPathComponent("\(id)")
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPRequest.DELETE.rawValue
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            if data != nil {
+                completion(.success(()))
+            }
+        }
+    }
+    
     func fetchCategory() throws -> [Category] {
         let data = Data(categoryJSON.utf8)
         return try decode(with: data)
@@ -64,6 +101,10 @@ final class NetworkLayer {
     }
     
     func decode<T: Decodable>(with data: Data) -> T {
-       try! JSONDecoder().decode(T.self, from: data)
+        try! JSONDecoder().decode(T.self, from: data)
+    }
+    
+    func encode<T: Encodable>(with model: T) -> Data {
+        try! JSONEncoder().encode(model)
     }
 }

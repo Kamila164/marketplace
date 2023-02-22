@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Products: Decodable {
+struct Products: Codable {
     let products: [Product]
 }
 
-struct Product: Decodable {
+struct Product: Codable {
+    var id: Int
     var thumbnail: String
     var title: String
     var discountPercentage: Double
