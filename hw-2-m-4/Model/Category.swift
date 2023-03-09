@@ -28,7 +28,7 @@ let categoryJSON = """
 ]
 """
 
-struct Category: Decodable {
+struct Category: Codable {
     var categoryImage: String
     var CategoryTitle: String
 }

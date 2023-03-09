@@ -25,6 +25,7 @@
 		8E41ECD2299F7AFB00C4D318 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECD1299F7AFB00C4D318 /* ProductViewController.swift */; };
 		8E41ECD4299F968D00C4D318 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E41ECD3299F968D00C4D318 /* NetworkLayer.swift */; };
 		8E9767A129A3999700501F01 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9767A029A3999700501F01 /* AddProductViewController.swift */; };
+		8E9767A529A79E7E00501F01 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9767A429A79E7E00501F01 /* ShowAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		8E41ECD1299F7AFB00C4D318 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		8E41ECD3299F968D00C4D318 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		8E9767A029A3999700501F01 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		8E9767A429A79E7E00501F01 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				8E41ECC9299E847D00C4D318 /* Category.swift */,
 				8E41ECCF299E9F7700C4D318 /* Product.swift */,
 				8E41ECD3299F968D00C4D318 /* NetworkLayer.swift */,
+				8E9767A429A79E7E00501F01 /* ShowAlert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				8E9767A129A3999700501F01 /* AddProductViewController.swift in Sources */,
 				8E41ECBD299E66A800C4D318 /* ServiceCell.swift in Sources */,
 				8E41ECCD299E89E500C4D318 /* ProductTableViewCell.swift in Sources */,
+				8E9767A529A79E7E00501F01 /* ShowAlert.swift in Sources */,
 				8E41ECD2299F7AFB00C4D318 /* ProductViewController.swift in Sources */,
 				8E41ECC0299E6CDC00C4D318 /* Service.swift in Sources */,
 				8E41ECC7299E816800C4D318 /* CategoryCell.swift in Sources */,

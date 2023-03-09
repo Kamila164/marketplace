@@ -15,7 +15,7 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
     
-    var product: Product?
+    var isLoading = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,46 +48,20 @@ class AddProductViewController: UIViewController {
     }
     
     private func addNew(_ product: Product) {
-        NetworkLayer.shared.addNewProduct(with: product) { result in
-            switch result {
-            case .success(_):
+        isLoading = true
+        Task {
+            do {
+                let model = try await NetworkLayer.shared.addNewProdduct(with: product)
+                isLoading = false
                 DispatchQueue.main.async {
-                    self.showSuccess("Succesful")
+                    self.showSuccess("")
                 }
-            case .failure(let error):
+            } catch {
                 DispatchQueue.main.async {
                     self.showError(error)
                 }
             }
         }
-    }
-    
-    private func showError(_ message: Error) {
-        let alert = UIAlertController(
-            title: "Error",
-            message: message.localizedDescription,
-            preferredStyle: .alert
-        )
-        let acceptAction = UIAlertAction(
-            title: "OK",
-            style: .cancel
-        )
-        alert.addAction(acceptAction)
-        present(alert, animated: true)
-    }
-    
-    private func showSuccess(_ message: String) {
-        let alert = UIAlertController(
-            title: "Success",
-            message: message,
-            preferredStyle: .alert
-        )
-        let acceptAction = UIAlertAction(
-            title: "OK",
-            style: .default
-        )
-        alert.addAction(acceptAction)
-        present(alert, animated: true)
     }
 }
 
